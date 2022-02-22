@@ -1,2 +1,2 @@
-# Number-Theory-Algo
-Number Theory Algorithm
+# Number-Theory-Algorithm
+Code for Number Theory Algorithm
