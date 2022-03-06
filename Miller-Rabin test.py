@@ -11,31 +11,38 @@ def fast_power(a, b, n):
     binNum = bin(b);
     strBin = binNum + ""
     strLen = len(binNum + "")
-
     c = math.pow(a, math.pow(2, 0)) % n
-    print(c)
+
     # Store the value.
     for i in range(0, strLen - 2):
         list.append(c)
         c = c * c % n
     count = 0;
-    print(list)
 
     # Calculate the value.
     for i in range(strLen - 1, 1, -1):
         if int(strBin[i]) == 1:
             result = result * list[count] % n
-            print(list[count])
         count = count + 1;
     return result % n
+
+def miller(p):
+    primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+    copyp = p
+    p = p - 1
+    count = 0
+    while (p % 2 == 0):
+        p = p / 2
+        count += 1
+    print(count)
+    for prime in primes:
+        for i in range(0, count):
+            print("witness is: ", prime)
+            print("power is: ",  int((2**i)*p))
+            print("result is: ", fast_power(prime, int((2**i)*p), copyp));
 
 
 # Main for some test.
 if __name__ == '__main__':
-    ##print("Part a: ")
-    #print(fast_power(892383, 103, 2038667))
-    #print('\n')
-    #print("Part c: ")
-    #print(fast_power(317730, 810367, 2038667))
-    print(fast_power(2, 29725377, 118901509))
-    print(fast_power(2, 120, 1739))
+    miller(118901509)
+    print(fast_power(2, 59450754, 118901509))
