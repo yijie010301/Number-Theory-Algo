@@ -69,7 +69,7 @@ def giantStep(n, p, c, h):
     return giantList
 
 
-# Pohlig-Hellman Algorithm.
+# Shank's Algorithm.
 def match(g, p, h):
     c = mod_inverse(g, p)
     order = findorder(g, p)
